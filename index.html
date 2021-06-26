@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Docker</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">Docker<span>.</span></a>
+      <div class="menuToggle" onclick="toggleMenu();"></div>
+      <ul class="navigation">
+        <li><a href="#banner">Home</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#Run">Docker Run</a></li>
+      </ul>
+    </header>
+
+    <section class="banner" id="banner">
+      <a href="#About" class="btn">Get Started With Docker</a>
+    </section>
+
+    <section class="About" id="About">
+      <div class="row">
+        <div class="col50">
+          <h2 class="titleText"><span>A</span>bout Docker</h2>
+          <p>
+            Docker is a platform as a service (PaaS) products which packages an
+            application and all its dependencies together in the form of
+            containers. This containerization aspect ensures that the
+            application works in any environment.<br /><br />
+            Each and every application runs on separate containers and has its
+            own set of dependencies & libraries.<br />
+            Any OS can run on docker by pulling the respective OS image from
+            <a href="https://hub.docker.com">Docker Hub</a> on the docker by
+            using pull command. <br />
+            <br />
+            It is the client-server type of application which means we have
+            clients who relay to the server.
+
+            <br />
+            <br /><br />
+            Docker Community Built on a culture of collaboration, inclusion and
+            advancement, Docker and the Docker Community are the heart of
+            application development.<br />
+            <br />
+            <br />
+            <br />
+          </p>
+        </div>
+        <div class="col50">
+          <div class="imgBx">
+            <img src="D.png" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class"Run" id="Run">
+    <div class="image">
+      <div class="agileits-main">
+        <div class="w3lmain-info">
+          <!-- agileits-main-row-two -->
+          <div class="agileitsmain-row">
+            <div class="profile-w3grid2 w3subscribe">
+              <!-- login form three -->
+              <div class="login-form login-form-three">
+                <div class="agile-row">
+                  <h3>Docker Commands</h3>
+
+                  <div class="login-agileits-top">
+                    <div class="input-row">
+                      <input
+                        type="text"
+                        id="cmd"
+                        class="user"
+                        placeholder="Commands"
+                        required=""
+                      />
+                    </div>
+                    <div class="agileits-row2"></div>
+
+                    <button type="submit" onclick="lw();">Run Command
+                    <button/>   
+
+
+
+                  </div>
+                   <p>Output:</p>
+                  <pre>
+							<pre id="op" style="color: azure;font-size: 10px;  text-align: justify;"></pre>
+                            </pre>
+                </div>
+              </div>
+              <!-- login form three -->
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <script>
+      function lw() {
+        var i = document.getElementById("cmd").value;
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", "http://192.168.1.2/cgi-bin/index.py?x=" + i, true);
+        xhr.send();
+
+        //output from above URL
+        xhr.onload = function () {
+          var output = xhr.responseText;
+          document.getElementById("op").innerHTML = output;
+        };
+      }
+    </script>
+
+    <script type="text/javascript">
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+      });
+
+      function toggleMenu() {
+        const menuToggle = document.querySelector(".menuToggle");
+        const navigation = document.querySelector(".navigation");
+
+        menuToggle.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
